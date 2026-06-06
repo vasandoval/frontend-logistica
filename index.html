@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiTrans Express</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    
+    <h1>LogiTrans Express</h1>
+    <section class="content">
+        <form name="InicioSesion">
+            <h2>Iniciar sesión</h2>
+            <div>
+                <label for="usuario">Usuario: </label>
+                <input type="text" name="usuario">
+                <p id="msgInputUsuario" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="contra">Contraseña: </label>
+                <input type="password" name="contra">
+                <p id="msgInputContra" class="inputError">Campo Obligatorio.</p>
+            </div>
+        </form>
+    </section>
+
+    <div id="modal1" class="modal close">
+        <p class="modal__texto">OK</p>
+        <button class="modal__btn">Aceptar</button>
+    </div>
+
+    <script src="js/modal.js"></script>
+    <script src="js/sesion.js"></script>
+</body>
+</html>
