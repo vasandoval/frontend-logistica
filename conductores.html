@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conductores - LogiTrans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    
+    <h1>Conductores</h1>
+    <section class="content">
+        <form name="ConductorForm">
+            <h2>Registrar Conductor</h2>
+            <div>
+                <label for="nombres">Nombres:</label>
+                <input type="text" name="nombres">
+                <p id="msgNombres" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos">
+                <p id="msgApellidos" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="docId">Documeto de Identificación:</label>
+                <input type="text" name="documento">
+                <p id="msgDocID" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <input type="text" name="telefono">
+            </div>
+            <div>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" name="correo">
+            </div>
+            <div>
+                <label for="num_lice">Número de Licencia:</label>
+                <input type="text" name="numero_licencia">
+                <p id="msgLice" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="cat_Lice">Categoría de Licencia:</label>
+                <input type="text" name="categoria_licencia">
+            </div>
+            <div>
+                <label for="venc_lice">Fecha de Vencimiento de la Licencia:</label>
+                <input type="date" name="fecha_vencimiento_licencia">
+            </div>
+            <div class="buttons">
+                <button type="reset">Cancelar</button>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+
+        <table id="conductorTB">
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Documento de Identificación</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Licencia</th>
+                    <th>Categoría</th>
+                    <th>Vencimiento</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="10">No hay registros...</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div id="modal1" class="modal close">
+        <p class="modal__texto">OK</p>
+        <button class="modal__btn">Aceptar</button>
+    </div>
+
+    <script src="js/modal.js"></script>
+    <script src="js/conductores.js"></script>
+    <script src="js/conductor_form.js"></script>
+
+</body>
+</html>
