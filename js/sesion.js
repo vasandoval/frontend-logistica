@@ -1,16 +1,24 @@
+/* definición de variables */
 const loginForm = document.forms['InicioSesion'];
+const modalLogin = document.getElementById('modalLogin');
+const btnAbrirLogin = document.getElementById('btnAbrirLogin');
+
+/* definición de métodos */
+const abrirLogin = () => {
+    modalLogin.classList.remove('oculto');
+};
 
 const getDatosLogin = () => {
     const datos = {
         usuario: loginForm['usuario'].value,
-        contrasena: loginForm['contrasena']. value,
+        contrasena: loginForm['contrasena'].value,
     };
     return datos;
 };
 
 const validarLogin = (datos) => {
     const msgUsuario = document.getElementById('msgInputUsuario');
-const msgContrasena = document.getElementById('msgInputContra');
+    const msgContrasena = document.getElementById('msgInputContra');
 
     if (!datos.usuario) {
         msgUsuario.style.display = 'block';
@@ -18,9 +26,9 @@ const msgContrasena = document.getElementById('msgInputContra');
         msgUsuario.style.display = 'none';
     }
 
-    if (!datos.contrasena){
+    if (!datos.contrasena) {
         msgContrasena.style.display = 'block';
-    }else {
+    } else {
         msgContrasena.style.display = 'none';
     }
 };
@@ -54,7 +62,7 @@ const iniciarSesion = async () => {
 };
 
 const cerrarSesion = async () => {
-    try{
+    try {
         const tkn = localStorage.getItem('token');
         await fetch('http://127.0.0.1:8000/logout', {
             method: 'post',
@@ -69,11 +77,16 @@ const cerrarSesion = async () => {
     window.location.href = 'index.html';
 };
 
+/* definición de eventos */
+btnAbrirLogin.addEventListener('click', () => {
+    abrirLogin();
+});
+
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const datos = getDatosLogin();
     validarLogin(datos);
-    if (!datos.usuario || !datos.contrasena){
+    if (!datos.usuario || !datos.contrasena) {
         showModal('Todos los campos son obligatorios', 'error');
     } else {
         iniciarSesion();
@@ -81,6 +94,7 @@ loginForm.addEventListener('submit', (event) => {
 });
 
 loginForm.addEventListener('reset', () => {
-    document.getElementById('msgUsuario').style.display = 'none';
-    document.getElementById('msgContrasena').style.display = 'none';
+    modalLogin.classList.add('oculto');
+    document.getElementById('msgInputUsuario').style.display = 'none';
+    document.getElementById('msgInputContra').style.display = 'none';
 });

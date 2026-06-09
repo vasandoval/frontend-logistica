@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,14 +78,21 @@
         </table>
     </section>
 
-    <div id="modal1" class="modal close">
-        <p class="modal__texto">OK</p>
-        <button class="modal__btn">Aceptar</button>
-    </div>
 
     <script src="js/modal.js"></script>
+    <script src="js/sesion.js"></script>
     <script src="js/conductores.js"></script>
     <script src="js/conductor_form.js"></script>
+
+    <nav class="navbar">
+        <!--<div class="nav-logo">
+            <span class="logo-texto">LOGITRANS <strong>EXPRESS</strong></span>
+        </div>-->
+        <ul class="nav-links">
+            <li><a href="index.html">Volver al inicio</a></li>
+        </ul>
+        <button class="btn-salir" onclick="cerrarSesion()">Cerrar sesión</button>
+    </nav>
 
 </body>
 </html>

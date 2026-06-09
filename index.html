@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +8,49 @@
     <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
-    
-    <h1>LogiTrans Express</h1>
-    <section class="content">
-        <form name="InicioSesion">
-            <h2>Iniciar sesión</h2>
-            <div>
-                <label for="usuario">Usuario: </label>
-                <input type="text" name="usuario">
-                <p id="msgInputUsuario" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label for="contrasena">Contraseña: </label>
-                <input type="password" name="contrasena">
-                <p id="msgInputContra" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div class="buttons">
-                <button type="reset">Cancelar</button>
-                <button type="submit">Ingresar</button>
-            </div>
-        </form>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-texto">LOGITRANS <strong>EXPRESS</strong></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="conductores.html">Conductores</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="rutas.html">Rutas</a></li>
+            <li><a href="viajes.html">Viajes</a></li>
+        </ul>
+        <button class="btn-ingresar" id="btnAbrirLogin">Ingresar</button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-contenido">
+            <h1>Control total de<br><span>transporte de carga</span></h1>
+            <p>Gestiona conductores, vehículos, rutas y viajes desde una sola plataforma.</p>
+        </div>
     </section>
 
-    <div id="modal1" class="modal close">
-        <p class="modal__texto">OK</p>
-        <button class="modal__btn">Aceptar</button>
+    <div id="modalLogin" class="modal-login-overlay oculto">
+        <div class="modal-login-caja">
+            <h2>Iniciar sesión</h2>
+            <form name="InicioSesion">
+                <div class="campo">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" name="usuario">
+                    <p id="msgInputUsuario" class="inputError">Campo Obligatorio.</p>
+                </div>
+                <div class="campo">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" name="contrasena">
+                    <p id="msgInputContra" class="inputError">Campo Obligatorio.</p>
+                </div>
+                <div class="login-buttons">
+                    <button type="reset">Cancelar</button>
+                    <button type="submit">Ingresar</button>
+                </div>
+            </form>
+        </div>
     </div>
+
 
     <script src="js/modal.js"></script>
     <script src="js/sesion.js"></script>
