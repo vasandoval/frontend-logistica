@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutas - LogiTrans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-texto">LOGITRANS <strong>EXPRESS</strong></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="conductores.html">Conductores</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="rutas.html">Rutas</a></li>
+            <li><a href="viajes.html">Viajes</a></li>
+        </ul>
+        <button class="btn-salir" onclick="cerrarSesion()">Cerrar sesión</button>
+    </nav>
+
+    <h1>Rutas</h1>
+    <section class="content">
+        <form name="RutaForm">
+            <h2>Registrar Ruta</h2>
+            <div>
+                <label for="ciudad_origen">Ciudad Origen:</label>
+                <input type="text" name="ciudad_origen">
+                <p id="msgOrigen" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="ciudad_destino">Ciudad Destino:</label>
+                <input type="text" name="ciudad_destino">
+                <p id="msgDestino" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="distancia">Distancia (km):</label>
+                <input type="number" name="distancia">
+                <p id="msgDistancia" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label for="tiempo_estimado">Tiempo Estimado:</label>
+                <input type="text" name="tiempo_estimado">
+            </div>
+            <div>
+                <label for="observaciones">Observaciones:</label>
+                <input type="text" name="observaciones">
+            </div>
+            <div class="buttons">
+                <button type="reset">Cancelar</button>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+
+        <table id="rutaTB">
+            <thead>
+                <tr>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Distancia</th>
+                    <th>Tiempo</th>
+                    <th>Observaciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6">No hay registros...</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div id="modal1" class="modal close">
+        <p class="modal__texto">OK</p>
+        <button class="modal__btn">Aceptar</button>
+    </div>
+
+    <script src="js/modal.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/rutas.js"></script>
+    <script src="js/ruta_form.js"></script>
+</body>
+</html>

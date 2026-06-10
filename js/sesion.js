@@ -3,7 +3,13 @@ const loginForm = document.forms['InicioSesion'];
 const modalLogin = document.getElementById('modalLogin');
 const btnAbrirLogin = document.getElementById('btnAbrirLogin');
 
-/* definición de métodos */
+const btnAbrirLogin = document.getElementById('btnAbrirLogin');
+if (btnAbrirLogin) {
+    btnAbrirLogin.addEventListener('click', () => {
+        abrirLogin();
+    });
+}
+
 const abrirLogin = () => {
     modalLogin.classList.remove('oculto');
 };
@@ -77,7 +83,6 @@ const cerrarSesion = async () => {
     window.location.href = 'index.html';
 };
 
-/* definición de eventos */
 btnAbrirLogin.addEventListener('click', () => {
     abrirLogin();
 });

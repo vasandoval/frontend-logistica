@@ -43,6 +43,11 @@ const mostConductor = () => {
 
         accionTd.appendChild(editarBtn);
 
+        const estadoBtn = document.createElement('button');
+        estadoBtn.textContent = 'Estado';
+        estadoBtn.addEventListener('click', () => cambiarEstadoConductor(item));
+        accionTd.appendChild(estadoBtn);
+
         tr.appendChild(nomTd);
         tr.appendChild(apelTd);
         tr.appendChild(docTd);
@@ -89,6 +94,33 @@ const consultarConductor = async () => {
         console.error('Error en el servicio');
     }
     console.log('Fin del request...');
+};
+
+const cambiarEstadoConductor = async (item) => {
+    const estados = ['disponible', 'en_ruta', 'inactivo'];
+    const actual = item.estado;
+    const siguiente = estados[(estados.indexOf(actual) + 1) % estados.length];
+
+    const tkn = localStorage.getItem('token');
+    try {
+        const response = await fetch(`http://127.0.0.1:8001/conductores/${item.id}/estado`, {
+            method: 'patch',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': tkn,
+            },
+            body: JSON.stringify({ estado: siguiente }),
+        });
+        const body = await response.json();
+        if (response.status == 200) {
+            showModal(`Estado cambiado a ${siguiente}`);
+            consultarConductores();
+        } else {
+            showModal(body.error, 'error');
+        }
+    } catch (ex) {
+        console.error('Error en el servicio');
+    }
 };
 
 const editarConductor = (value) => {
