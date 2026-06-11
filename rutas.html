@@ -54,10 +54,51 @@
                 <button type="submit">Guardar</button>
             </div>
         </form>
-
+        <form name="ProgramacionForm">
+            <h2>Programar Viaje</h2>
+            <div>
+                <label>Conductor ID:</label>
+                <input type="number" name="conductor_id">
+                <p id="msgConductorId" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Vehículo ID:</label>
+                <input type="number" name="vehiculo_id">
+                <p id="msgVehiculoId" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Ruta ID:</label>
+                <input type="number" name="ruta_id">
+                <p id="msgRutaId" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Fecha de Salida:</label>
+                <input type="date" name="fecha_salida">
+                <p id="msgFechaSalida" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Hora de Salida:</label>
+                <input type="time" name="hora_salida">
+                <p id="msgHoraSalida" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Fecha Estimada de Llegada:</label>
+                <input type="date" name="fecha_estimada_llegada">
+                <p id="msgFechaLlegada" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Observaciones:</label>
+                <input type="text" name="observaciones">
+            </div>
+            <div class="buttons">
+                <button type="reset">Cancelar</button>
+                <button type="submit">Programar</button>
+            </div>
+        </form>
         <table id="rutaTB">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Origen</th>
                     <th>Destino</th>
                     <th>Distancia</th>
@@ -72,6 +113,8 @@
                 </tr>
             </tbody>
         </table>
+
+        
     </section>
 
     <div id="modal1" class="modal close">

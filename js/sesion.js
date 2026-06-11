@@ -1,17 +1,9 @@
-/* definición de variables */
 const loginForm = document.forms['InicioSesion'];
 const modalLogin = document.getElementById('modalLogin');
-const btnAbrirLogin = document.getElementById('btnAbrirLogin');
-
-const btnAbrirLogin = document.getElementById('btnAbrirLogin');
-if (btnAbrirLogin) {
-    btnAbrirLogin.addEventListener('click', () => {
-        abrirLogin();
-    });
-}
 
 const abrirLogin = () => {
-    modalLogin.classList.remove('oculto');
+    if (modalLogin) 
+        modalLogin.classList.remove('oculto');
 };
 
 const getDatosLogin = () => {
@@ -56,7 +48,10 @@ const iniciarSesion = async () => {
             localStorage.setItem('usuario', body.usuario);
             localStorage.setItem('nombre', body.nombre);
             localStorage.setItem('rol', body.rol);
-            window.location.href = 'conductores.html';
+            showModal('Bienvenido de nuevo, ' + body.nombre);
+            setTimeout(() =>{
+                window.location.href = 'conductores.html';
+            }, 1500);            
         } else {
             showModal(body.error, 'error');
         }
@@ -83,23 +78,28 @@ const cerrarSesion = async () => {
     window.location.href = 'index.html';
 };
 
-btnAbrirLogin.addEventListener('click', () => {
-    abrirLogin();
-});
+const btnAbrirLogin = document.getElementById('btnAbrirLogin');
+if (btnAbrirLogin) {
+    btnAbrirLogin.addEventListener('click', () => {
+        abrirLogin();
+    });
+}
 
-loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const datos = getDatosLogin();
-    validarLogin(datos);
-    if (!datos.usuario || !datos.contrasena) {
-        showModal('Todos los campos son obligatorios', 'error');
-    } else {
-        iniciarSesion();
-    }
-});
+if (loginForm) {
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const datos = getDatosLogin();
+        validarLogin(datos);
+        if (!datos.usuario || !datos.contrasena) {
+            showModal('Todos los campos son obligatorios', 'error');
+        } else {
+            iniciarSesion();
+        }
+    });
 
-loginForm.addEventListener('reset', () => {
-    modalLogin.classList.add('oculto');
-    document.getElementById('msgInputUsuario').style.display = 'none';
-    document.getElementById('msgInputContra').style.display = 'none';
-});
+    loginForm.addEventListener('reset', () => {
+        if (modalLogin) modalLogin.classList.add('oculto');
+        document.getElementById('msgInputUsuario').style.display = 'none';
+        document.getElementById('msgInputContra').style.display = 'none';
+    });
+}

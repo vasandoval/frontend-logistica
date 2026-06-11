@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
+
+     <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-texto">LOGITRANS <strong>EXPRESS</strong></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="conductores.html">Conductores</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="rutas.html">Rutas</a></li>
+            <li><a href="viajes.html">Viajes</a></li>
+        </ul>
+    </nav>
     
     <h1>Conductores</h1>
     <section class="content">
@@ -58,6 +70,7 @@
         <table id="conductorTB">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Documento de Identificación</th>
@@ -77,6 +90,11 @@
             </tbody>
         </table>
     </section>
+
+    <div id="modal1" class="modal close">
+        <p class="modal__texto">OK</p>
+        <button class="modal__btn">Aceptar</button>
+    </div>
 
 
     <script src="js/modal.js"></script>

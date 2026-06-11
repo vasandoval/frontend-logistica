@@ -8,6 +8,9 @@ const mostConductor = () => {
     for (let item of conductores){
         const tr = document.createElement('tr');
 
+        const idTd = document.createElement('td');
+        idTd.textContent = item.id;
+
         const nomTd = document.createElement('td');
         nomTd.textContent = item.nombres;
 
@@ -48,6 +51,7 @@ const mostConductor = () => {
         estadoBtn.addEventListener('click', () => cambiarEstadoConductor(item));
         accionTd.appendChild(estadoBtn);
 
+        tr.appendChild(idTd);
         tr.appendChild(nomTd);
         tr.appendChild(apelTd);
         tr.appendChild(docTd);
@@ -89,7 +93,7 @@ const consultarConductor = async () => {
                 estado: item.estado,
             })
         );
-        mostConductores();
+        mostConductor();
     }catch(ex) {
         console.error('Error en el servicio');
     }

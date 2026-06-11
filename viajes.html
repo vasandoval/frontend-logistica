@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes - LogiTrans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-texto">LOGITRANS <strong>EXPRESS</strong></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="conductores.html">Conductores</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="rutas.html">Rutas</a></li>
+            <li><a href="viajes.html">Viajes</a></li>
+        </ul>
+    </nav>
+
+    <h1>Viajes</h1>
+    <section class="content">
+        <form name="viajesForm">
+            <h2>Registrar Viajes</h2>
+            <div>
+                <label>Programación:</label>
+                <select name="programacion_viaje_id" id="selectProgramacion">
+                    <option value="">Selecciona una programación</option>
+                </select>
+                <p id="msgProgId" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Fecha:</label>
+                <input type="date" name="fecha">
+                <p id="msgFecha" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Hora:</label>
+                <input type="time" name="hora">
+                <p id="msgHora" class="inputError">Campo Obligatorio.</p>
+            </div>
+            <div>
+                <label>Novedad:</label>
+                <input type="text" name="novedad">
+            </div>
+            <div class="buttons">
+                <button type="reset">Cancelar</button>
+                <button type="submit">Iniciar Viaje</button>
+            </div>
+        </form>
+
+        <table id="viajeTB">
+            <thead>
+                <tr>
+                    <th>ID Programación</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Novedad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6">No hay registros...</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <div id="modal1" class="modal close">
+        <p class="modal__texto">OK</p>
+        <button class="modal__btn">Aceptar</button>
+    </div>
+
+    <script src="js/modal.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/viajes.js"></script>
+    <script src="js/viajes_form.js"></script>
+</body>
+</html>

@@ -1,7 +1,5 @@
-/* definición de variables */
 const RutaForm = document.forms['RutaForm'];
 
-/* definición de métodos */
 const getRutaForm = () => {
     const datos = {
         ciudad_origen: RutaForm['ciudad_origen'].value,
@@ -35,7 +33,7 @@ const registrarRuta = async () => {
         const body = await response.json();
         const status = response.status;
         if (status == 201) {
-            showModal('Ruta registrada');
+            showModal('Ruta creada con ID: ' + body.ruta.id);
             rutas.push({
                 id: body.ruta.id,
                 ciudad_origen: body.ruta.ciudad_origen,

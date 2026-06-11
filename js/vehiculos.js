@@ -8,6 +8,9 @@ const mostVehiculos = () => {
     for(let item of vehiculos) {
         const tr = document.createElement('tr');
 
+        const idTd = document.createElement('td');
+        idTd.textContent = item.id;
+
         const placaTd = document.createElement('td');
         placaTd.textContent = item.placa;
 
@@ -34,6 +37,7 @@ const mostVehiculos = () => {
 
         accionTd.appendChild(editarBtn);
 
+        tr.appendChild(idTd);
         tr.appendChild(placaTd);
         tr.appendChild(tipoTd);
         tr.appendChild(capacidadTd);
