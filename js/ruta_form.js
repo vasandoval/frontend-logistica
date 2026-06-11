@@ -50,7 +50,6 @@ const registrarRuta = async () => {
     } catch (ex) {
         console.error('Error en el servicio');
     }
-    console.log('Fin del request...');
 };
 
 const actualizarRuta = async () => {
@@ -79,7 +78,6 @@ const actualizarRuta = async () => {
         console.error('Error en el servicio');
         showModal('Error al conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const validarRutaForm = (datos) => {

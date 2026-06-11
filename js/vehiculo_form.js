@@ -52,7 +52,6 @@ const registrarVehiculo= async () => {
         console.error('Error en el servicio');
         showModal('Error al conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const actualizarVehiculo = async () => {
@@ -81,7 +80,6 @@ const actualizarVehiculo = async () => {
         console.error('Error en el servicio');
         showModal('Error al conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const validarVehiculoForm = (datos) => {

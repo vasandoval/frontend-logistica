@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,62 +17,126 @@
             <li><a href="conductores.html">Conductores</a></li>
             <li><a href="vehiculos.html">Vehículos</a></li>
             <li><a href="rutas.html">Rutas</a></li>
-            <li><a href="viajes.html">Viajes</a></li>
+            <li><a href="viajes.html" class="activo">Viajes</a></li>
         </ul>
+        <button class="btn-salir" onclick="cerrarSesion()">Cerrar sesión</button>
     </nav>
 
-    <h1>Viajes</h1>
-    <section class="content">
-        <form name="viajesForm">
-            <h2>Registrar Viajes</h2>
-            <div>
-                <label>Programación:</label>
-                <select name="programacion_viaje_id" id="selectProgramacion">
-                    <option value="">Selecciona una programación</option>
-                </select>
-                <p id="msgProgId" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Fecha:</label>
-                <input type="date" name="fecha">
-                <p id="msgFecha" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Hora:</label>
-                <input type="time" name="hora">
-                <p id="msgHora" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Novedad:</label>
-                <input type="text" name="novedad">
-            </div>
-            <div class="buttons">
-                <button type="reset">Cancelar</button>
-                <button type="submit">Iniciar Viaje</button>
-            </div>
-        </form>
+    <div class="page-body">
 
-        <table id="viajeTB">
-            <thead>
-                <tr>
-                    <th>ID Programación</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Estado</th>
-                    <th>Novedad</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="6">No hay registros...</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        <div class="module-header">
+            <div>
+                <div class="module-title">Viajes</div>
+                <div class="module-subtitle">Seguimiento operativo de viajes en curso</div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="forms-row">
+
+                <div class="form-panel">
+                    <div class="form-panel-header">
+                        <div>
+                            <div class="form-panel-title">Registrar seguimiento</div>
+                            <div class="form-panel-desc">Inicia o actualiza el estado de un viaje</div>
+                        </div>
+                    </div>
+                    <form name="viajesForm">
+                        <div>
+                            <label>Programación</label>
+                            <select name="programacion_viaje_id" id="selectProgramacion">
+                                <option value="">Selecciona una programación</option>
+                            </select>
+                            <p id="msgProgId" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Fecha</label>
+                            <input type="date" name="fecha">
+                            <p id="msgFecha" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Hora</label>
+                            <input type="time" name="hora">
+                            <p id="msgHora" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Novedad</label>
+                            <input type="text" name="novedad" placeholder="Observación del viaje...">
+                        </div>
+                        <div class="buttons">
+                            <button type="reset">Cancelar</button>
+                            <button type="submit">Iniciar Viaje</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-panel secondary">
+                    <div class="form-panel-header">
+                        <div>
+                            <div class="form-panel-title">Actualizar estado</div>
+                            <div class="form-panel-desc">Selecciona un viaje de la tabla para actualizar</div>
+                        </div>
+                    </div>
+                    <form name="ActualizarViajeForm">
+                        <input type="hidden" name="id">
+                        <div>
+                            <label>Estado</label>
+                            <select name="estado_edit">
+                                <option value="programado">Programado</option>
+                                <option value="en_transito">En tránsito</option>
+                                <option value="retrasado">Retrasado</option>
+                                <option value="finalizado">Finalizado</option>
+                                <option value="cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Novedad</label>
+                            <input type="text" name="novedad_edit" placeholder="Describe la novedad...">
+                        </div>
+                        <div class="buttons">
+                            <button type="reset">Cancelar</button>
+                            <button type="submit">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="table-section">
+                <div class="table-section-header">
+                    <div>
+                        <div class="table-section-title">Seguimiento de viajes</div>
+                        <div class="table-section-sub">Última actualización: hoy</div>
+                    </div>
+                </div>
+                <table id="viajeTB">
+                    <thead>
+                        <tr>
+                            <th>ID Programación</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Estado</th>
+                            <th>Novedad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6">No hay registros...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
     <div id="modal1" class="modal close">
-        <p class="modal__texto">OK</p>
-        <button class="modal__btn">Aceptar</button>
+        <div class="modal__cuerpo">
+            <p class="modal__texto">OK</p>
+            <button class="modal__btn">Aceptar</button>
+        </div>
     </div>
 
     <script src="js/modal.js"></script>

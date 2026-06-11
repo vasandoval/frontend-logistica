@@ -97,8 +97,9 @@ const consultarConductor = async () => {
     }catch(ex) {
         console.error('Error en el servicio');
     }
-    console.log('Fin del request...');
 };
+
+const consultarConductores = consultarConductor;
 
 const cambiarEstadoConductor = async (item) => {
     const estados = ['disponible', 'en_ruta', 'inactivo'];
@@ -130,6 +131,9 @@ const cambiarEstadoConductor = async (item) => {
 const editarConductor = (value) => {
     conductor = value;
     setConductorForm(conductor);
+    document.getElementById('formTitle').textContent = 'Editar conductor';
+    document.getElementById('formDesc').textContent = 'Modifica los datos del conductor seleccionado';
+    document.getElementById('submitBtn').textContent = 'Actualizar';
 };
 
 consultarConductor();

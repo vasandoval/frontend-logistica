@@ -68,7 +68,6 @@ const consultarViajes = async () => {
     } catch (ex) {
         console.error('Error en el servicio');
     }
-    console.log('Fin del request...');
 };
 
 const finalizarViaje = async(item) => {

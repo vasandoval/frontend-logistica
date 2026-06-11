@@ -1,6 +1,17 @@
 const loginForm = document.forms['InicioSesion'];
 const modalLogin = document.getElementById('modalLogin');
 
+const esIndex = window.location.pathname.endsWith('index.html') 
+             || window.location.pathname === '/' 
+             || window.location.pathname.endsWith('/');
+
+if (!esIndex) {
+    const tokenGuardado = localStorage.getItem('token');
+    if (!tokenGuardado) {
+        window.location.href = 'index.html';
+    }
+}
+
 const abrirLogin = () => {
     if (modalLogin) 
         modalLogin.classList.remove('oculto');
@@ -59,7 +70,6 @@ const iniciarSesion = async () => {
         console.error('Error en el servicio');
         showModal('Error al conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const cerrarSesion = async () => {
@@ -80,9 +90,7 @@ const cerrarSesion = async () => {
 
 const btnAbrirLogin = document.getElementById('btnAbrirLogin');
 if (btnAbrirLogin) {
-    btnAbrirLogin.addEventListener('click', () => {
-        abrirLogin();
-    });
+    btnAbrirLogin.addEventListener('click', abrirLogin);
 }
 
 if (loginForm) {
@@ -100,6 +108,6 @@ if (loginForm) {
     loginForm.addEventListener('reset', () => {
         if (modalLogin) modalLogin.classList.add('oculto');
         document.getElementById('msgInputUsuario').style.display = 'none';
-        document.getElementById('msgInputContra').style.display = 'none';
+        document.getElementById('msgInputContra').style.display  = 'none';
     });
 }

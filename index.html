@@ -25,6 +25,7 @@
         <div class="hero-contenido">
             <h1>Control total de<br><span>transporte de carga</span></h1>
             <p>Gestiona conductores, vehículos, rutas y viajes desde una sola plataforma.</p>
+            <button class="btn-abrir-login" id="btnAbrirLogin">Iniciar sesión</button>
         </div>
     </section>
 
@@ -33,13 +34,13 @@
             <h2>Iniciar sesión</h2>
             <form name="InicioSesion">
                 <div class="campo">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" name="usuario">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" placeholder="admin">
                     <p id="msgInputUsuario" class="inputError">Campo Obligatorio.</p>
                 </div>
                 <div class="campo">
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" name="contrasena">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" name="contrasena" placeholder="••••••••">
                     <p id="msgInputContra" class="inputError">Campo Obligatorio.</p>
                 </div>
                 <div class="login-buttons">
@@ -50,6 +51,12 @@
         </div>
     </div>
 
+    <div id="modal1" class="modal close">
+        <div class="modal__cuerpo">
+            <p class="modal__texto">OK</p>
+            <button class="modal__btn">Aceptar</button>
+        </div>
+    </div>
 
     <script src="js/modal.js"></script>
     <script src="js/sesion.js"></script>

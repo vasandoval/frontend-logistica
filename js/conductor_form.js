@@ -61,7 +61,6 @@ const registrarConductor = async () => {
         console.error('Error en el servicio');
         showModal('Error al conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const actualizarConductor = async () => {
@@ -90,7 +89,6 @@ const actualizarConductor = async () => {
         console.error('Error en el servicio');
         showModal('Error el conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const validarConductorForm = (datos) => {
@@ -118,6 +116,9 @@ ConductorForm.addEventListener('submit', (event) => {
 
 ConductorForm.addEventListener('reset', () => {
     conductor = null;
+    document.getElementById('formTitle').textContent = 'Registrar conductor';
+    document.getElementById('formDesc').textContent = 'Ingresa los datos del nuevo conductor';
+    document.getElementById('submitBtn').textContent = 'Guardar';
     document.getElementById('msgNombres').style.display = 'none';
     document.getElementById('msgApellidos').style.display = 'none';
     document.getElementById('msgDocID').style.display = 'none';

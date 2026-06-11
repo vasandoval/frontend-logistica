@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,110 +16,149 @@
         <ul class="nav-links">
             <li><a href="conductores.html">Conductores</a></li>
             <li><a href="vehiculos.html">Vehículos</a></li>
-            <li><a href="rutas.html">Rutas</a></li>
+            <li><a href="rutas.html" class="activo">Rutas</a></li>
             <li><a href="viajes.html">Viajes</a></li>
         </ul>
         <button class="btn-salir" onclick="cerrarSesion()">Cerrar sesión</button>
     </nav>
 
-    <h1>Rutas</h1>
-    <section class="content">
-        <form name="RutaForm">
-            <h2>Registrar Ruta</h2>
-            <div>
-                <label for="ciudad_origen">Ciudad Origen:</label>
-                <input type="text" name="ciudad_origen">
-                <p id="msgOrigen" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label for="ciudad_destino">Ciudad Destino:</label>
-                <input type="text" name="ciudad_destino">
-                <p id="msgDestino" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label for="distancia">Distancia (km):</label>
-                <input type="number" name="distancia">
-                <p id="msgDistancia" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label for="tiempo_estimado">Tiempo Estimado:</label>
-                <input type="text" name="tiempo_estimado">
-            </div>
-            <div>
-                <label for="observaciones">Observaciones:</label>
-                <input type="text" name="observaciones">
-            </div>
-            <div class="buttons">
-                <button type="reset">Cancelar</button>
-                <button type="submit">Guardar</button>
-            </div>
-        </form>
-        <form name="ProgramacionForm">
-            <h2>Programar Viaje</h2>
-            <div>
-                <label>Conductor ID:</label>
-                <input type="number" name="conductor_id">
-                <p id="msgConductorId" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Vehículo ID:</label>
-                <input type="number" name="vehiculo_id">
-                <p id="msgVehiculoId" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Ruta ID:</label>
-                <input type="number" name="ruta_id">
-                <p id="msgRutaId" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Fecha de Salida:</label>
-                <input type="date" name="fecha_salida">
-                <p id="msgFechaSalida" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Hora de Salida:</label>
-                <input type="time" name="hora_salida">
-                <p id="msgHoraSalida" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Fecha Estimada de Llegada:</label>
-                <input type="date" name="fecha_estimada_llegada">
-                <p id="msgFechaLlegada" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label>Observaciones:</label>
-                <input type="text" name="observaciones">
-            </div>
-            <div class="buttons">
-                <button type="reset">Cancelar</button>
-                <button type="submit">Programar</button>
-            </div>
-        </form>
-        <table id="rutaTB">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Origen</th>
-                    <th>Destino</th>
-                    <th>Distancia</th>
-                    <th>Tiempo</th>
-                    <th>Observaciones</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="6">No hay registros...</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="page-body">
 
-        
-    </section>
+        <div class="module-header">
+            <div>
+                <div class="module-title">Rutas</div>
+                <div class="module-subtitle">Gestión de rutas y programación de viajes</div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="forms-row">
+
+                <div class="form-panel">
+                    <div class="form-panel-header">
+                        <div>
+                            <div class="form-panel-title">Registrar ruta</div>
+                            <div class="form-panel-desc">Define una nueva ruta de transporte</div>
+                        </div>
+                    </div>
+                    <form name="RutaForm">
+                        <div>
+                            <label for="ciudad_origen">Ciudad Origen</label>
+                            <input type="text" name="ciudad_origen" placeholder="Bogotá">
+                            <p id="msgOrigen" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label for="ciudad_destino">Ciudad Destino</label>
+                            <input type="text" name="ciudad_destino" placeholder="Medellín">
+                            <p id="msgDestino" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label for="distancia">Distancia (km)</label>
+                            <input type="number" name="distancia" placeholder="420">
+                            <p id="msgDistancia" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label for="tiempo_estimado">Tiempo Estimado</label>
+                            <input type="text" name="tiempo_estimado" placeholder="8 horas">
+                        </div>
+                        <div>
+                            <label for="observaciones">Observaciones</label>
+                            <input type="text" name="observaciones">
+                        </div>
+                        <div class="buttons">
+                            <button type="reset">Cancelar</button>
+                            <button type="submit">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-panel secondary">
+                    <div class="form-panel-header">
+                        <div>
+                            <div class="form-panel-title">Programar viaje</div>
+                            <div class="form-panel-desc">Asigna conductor, vehículo y ruta</div>
+                        </div>
+                    </div>
+                    <form name="ProgramacionForm">
+                        <div>
+                            <label>Conductor ID</label>
+                            <input type="number" name="conductor_id">
+                            <p id="msgConductorId" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Vehículo ID</label>
+                            <input type="number" name="vehiculo_id">
+                            <p id="msgVehiculoId" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Ruta ID</label>
+                            <input type="number" name="ruta_id">
+                            <p id="msgRutaId" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Fecha de Salida</label>
+                            <input type="date" name="fecha_salida">
+                            <p id="msgFechaSalida" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Hora de Salida</label>
+                            <input type="time" name="hora_salida">
+                            <p id="msgHoraSalida" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Fecha Estimada de Llegada</label>
+                            <input type="date" name="fecha_estimada_llegada">
+                            <p id="msgFechaLlegada" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label>Observaciones</label>
+                            <input type="text" name="observaciones">
+                        </div>
+                        <div class="buttons">
+                            <button type="reset">Cancelar</button>
+                            <button type="submit">Programar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="table-section">
+                <div class="table-section-header">
+                    <div>
+                        <div class="table-section-title">Rutas registradas</div>
+                        <div class="table-section-sub">Última actualización: hoy</div>
+                    </div>
+                </div>
+                <table id="rutaTB">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Distancia</th>
+                            <th>Tiempo</th>
+                            <th>Observaciones</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="7">No hay registros...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
 
     <div id="modal1" class="modal close">
-        <p class="modal__texto">OK</p>
-        <button class="modal__btn">Aceptar</button>
+        <div class="modal__cuerpo">
+            <p class="modal__texto">OK</p>
+            <button class="modal__btn">Aceptar</button>
+        </div>
     </div>
 
     <script src="js/modal.js"></script>

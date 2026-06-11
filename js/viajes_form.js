@@ -44,7 +44,6 @@ const iniciarViaje = async () => {
         console.error('Erroren el servicio');
         showModal('Error al conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const validarviajesForm = (datos) => {
@@ -111,7 +110,6 @@ const registrarProgramacion = async () => {
         console.error('Error en el servicio');
         showModal('Error al conectar con el servidor', 'error');
     }
-    console.log('Fin del request...');
 };
 
 const validarProgramacionForm = (datos) => {

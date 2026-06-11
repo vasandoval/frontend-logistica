@@ -78,7 +78,6 @@ const consultarVehiculos = async () => {
     }catch (ex) {
         console.error('Error en el servidor');
     }
-    console.log('Fin del request...');
 };
 
 const editarVehiculo = (value) => {

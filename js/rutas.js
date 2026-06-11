@@ -74,7 +74,6 @@ const consultarRutas = async () => {
     } catch (ex) {
         console.error('Error en el servicio');
     }
-    console.log('Fin del request...');
 };
 
 const editarRuta = (value) => {

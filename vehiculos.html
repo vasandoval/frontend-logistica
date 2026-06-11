@@ -3,92 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehiculos - LogiTrans</title>
+    <title>Vehículos - LogiTrans</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
 
-     <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-logo">
             <span class="logo-texto">LOGITRANS <strong>EXPRESS</strong></span>
         </div>
         <ul class="nav-links">
             <li><a href="conductores.html">Conductores</a></li>
-            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="vehiculos.html" class="activo">Vehículos</a></li>
             <li><a href="rutas.html">Rutas</a></li>
             <li><a href="viajes.html">Viajes</a></li>
         </ul>
+        <button class="btn-salir" onclick="cerrarSesion()">Cerrar sesión</button>
     </nav>
 
-    <h1>Vehículos</h1>
-    <section class="content">
-        <form name="VehiculoForm">
-            <h2>Registrar Vehículo</h2>
-            <div>
-                <label for="placa">Placa:</label>
-                <input type="text" name="placa">
-                <p id="msgPlaca" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label for="tipo_vehiculo">Tipo de Vehículo:</label>
-                <input type="text" name="tipo_vehiculo">
-                <p id="msgTipo" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label for="capacidad_carga">Capacidad de Carga:</label>
-                <input type="text" name="capacidad_carga">
-                <p id="msgCapacidad" class="inputError">Campo Obligatorio.</p>
-            </div>
-            <div>
-                <label for="modelo">Modelo:</label>
-                <input type="text" name="modelo">
-            </div>
-            <div>
-                <label for="marca">Marca:</label>
-                <input type="text" name="marca">
-            </div>
-            <div class="button">
-                <button type="reset">Cancelar</button>
-                <button type="submit">Guardar</button>
-            </div>
-        </form>
+    <div class="page-body">
 
-        <table id="vehiculoTB">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Placa</th>
-                    <th>Tipo</th>
-                    <th>Capacidad</th>
-                    <th>Modelo</th>
-                    <th>Marca</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="7">No hay registros...</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        <div class="module-header">
+            <div>
+                <div class="module-title">Vehículos</div>
+                <div class="module-subtitle">Gestión de la flota de transporte</div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="forms-row">
+
+                <div class="form-panel">
+                    <div class="form-panel-header">
+                        <div>
+                            <div class="form-panel-title">Registrar vehículo</div>
+                            <div class="form-panel-desc">Ingresa los datos del nuevo vehículo</div>
+                        </div>
+                    </div>
+                    <form name="VehiculoForm">
+                        <div>
+                            <label for="placa">Placa</label>
+                            <input type="text" name="placa" placeholder="ABC123">
+                            <p id="msgPlaca" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label for="tipo_vehiculo">Tipo de Vehículo</label>
+                            <input type="text" name="tipo_vehiculo" placeholder="Camión, Furgón...">
+                            <p id="msgTipo" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label for="capacidad_carga">Capacidad de Carga (kg)</label>
+                            <input type="number" name="capacidad_carga" placeholder="5000">
+                            <p id="msgCapacidad" class="inputError">Campo Obligatorio.</p>
+                        </div>
+                        <div>
+                            <label for="modelo">Modelo</label>
+                            <input type="text" name="modelo" placeholder="2022">
+                        </div>
+                        <div>
+                            <label for="marca">Marca</label>
+                            <input type="text" name="marca" placeholder="Chevrolet">
+                        </div>
+                        <div class="buttons">
+                            <button type="reset">Cancelar</button>
+                            <button type="submit">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="table-section">
+                <div class="table-section-header">
+                    <div>
+                        <div class="table-section-title">Vehículos registrados</div>
+                        <div class="table-section-sub">Última actualización: hoy</div>
+                    </div>
+                </div>
+                <table id="vehiculoTB">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Placa</th>
+                            <th>Tipo</th>
+                            <th>Capacidad</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="8">No hay registros...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal1" class="modal close">
+        <div class="modal__cuerpo">
+            <p class="modal__texto">OK</p>
+            <button class="modal__btn">Aceptar</button>
+        </div>
+    </div>
 
     <script src="js/modal.js"></script>
     <script src="js/sesion.js"></script>
     <script src="js/vehiculos.js"></script>
     <script src="js/vehiculo_form.js"></script>
-
-    <nav class="navbar">
-        <!-- <div class="nav-logo">
-            <span class="logo-texto">LOGITRANS <strong>EXPRESS</strong></span>
-        </div> -->
-        <ul class="nav-links">
-            <li><a href="index.html">Volver al inicio</a></li>
-        </ul>
-        <button class="btn-salir" onclick="cerrarSesion()">Cerrar sesión</button>
-    </nav>
-
 </body>
 </html>
