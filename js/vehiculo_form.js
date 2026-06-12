@@ -57,7 +57,8 @@ const registrarVehiculo= async () => {
 const actualizarVehiculo = async () => {
     try{
         const id = vehiculo.id;
-        const tkm = localStorage.getItem('token');
+        const tkn = localStorage.getItem('token');
+
         const response = await fetch('http://127.0.0.1:8002/vehiculos/' + id, {
             method: 'put',
             headers: {
@@ -66,8 +67,10 @@ const actualizarVehiculo = async () => {
             },
             body: JSON.stringify(getVehiculoForm()),
         });
+
         const body = await response.json();
         const status = response.status;
+
         if(status == 200) {
             showModal('Vehiculo actualizado');
             consultarVehiculos();
@@ -77,7 +80,7 @@ const actualizarVehiculo = async () => {
             showModal(body.error, 'error');
         }
     } catch (ex) {
-        console.error('Error en el servicio');
+        console.error('Error en el servicio', ex);
         showModal('Error al conectar con el servidor', 'error');
     }
 };
