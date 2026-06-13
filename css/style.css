@@ -321,6 +321,83 @@ form .buttons button[type="submit"] {
     cursor: pointer;
 }
 
+
+/* MÓDULOS (conductores, vehiculos, rutas, viajes) */
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 100px 40px 40px;
+}
+
+form {
+    border: 1px solid rgba(77,168,218,0.2);
+    border-radius: 8px;
+    padding: 24px;
+    background-color: #0f2035;
+    min-width: 280px;
+}
+
+form h2 {
+    color: #4da8da;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+form div {
+    margin-bottom: 12px;
+}
+
+form label {
+    display: block;
+    color: #aabbcc;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #1a3050;
+    border: 1px solid rgba(77,168,218,0.3);
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    border-color: #4da8da;
+}
+
+form div.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+form .buttons button[type="reset"] {
+    flex: 1;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    color: #aabbcc;
+    cursor: pointer;
+}
+
+form .buttons button[type="submit"] {
+    flex: 1;
+    padding: 8px;
+    background-color: #4da8da;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 form .buttons button:hover {
     opacity: 0.85;
 }
@@ -411,3 +488,14 @@ h1 {
     display: none;
 }
 
+
+table td button:hover {
+    background-color: #4da8da;
+    color: #ffffff;
+}
+
+h1 {
+    color: #ffffff;
+    padding: 100px 40px 0;
+    font-size: 28px;
+}

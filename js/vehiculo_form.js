@@ -66,8 +66,10 @@ const actualizarVehiculo = async () => {
             },
             body: JSON.stringify(getVehiculoForm()),
         });
+
         const body = await response.json();
         const status = response.status;
+
         if(status == 200) {
             showModal('Vehiculo actualizado');
             consultarVehiculos();
@@ -77,7 +79,7 @@ const actualizarVehiculo = async () => {
             showModal(body.error, 'error');
         }
     } catch (ex) {
-        console.error('Error en el servicio');
+        console.error('Error en el servicio', ex);
         showModal('Error al conectar con el servidor', 'error');
     }
 };
