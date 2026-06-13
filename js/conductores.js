@@ -109,7 +109,7 @@ const cambiarEstadoConductor = async (item) => {
     const tkn = localStorage.getItem('token');
     try {
         const response = await fetch(`http://127.0.0.1:8001/conductores/${item.id}/estado`, {
-            method: 'patch',
+        method: 'post',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': tkn,
@@ -134,6 +134,65 @@ const editarConductor = (value) => {
     document.getElementById('formTitle').textContent = 'Editar conductor';
     document.getElementById('formDesc').textContent = 'Modifica los datos del conductor seleccionado';
     document.getElementById('submitBtn').textContent = 'Actualizar';
+};
+
+const cambiarFiltro = () => {
+    const tipo = document.getElementById('tipoBusqueda').value;
+    const input = document.getElementById('valorBusqueda');
+    const selectEstado = document.getElementById('valorEstado');
+
+    if (tipo === 'estado') {
+        input.style.display = 'none';
+        selectEstado.style.display = 'block';
+    } else {
+        input.style.display = 'block';
+        selectEstado.style.display = 'none';
+        input.value = ''; // limpiar valor anterior
+    }
+
+    if (tipo === 'todos') buscarConductor();
+};
+
+const buscarConductor = async () => {
+    const tipo = document.getElementById('tipoBusqueda').value;
+    const valor = document.getElementById('valorBusqueda').value.trim();
+    const estado = document.getElementById('valorEstado').value;
+    const tkn = localStorage.getItem('token');
+
+    // Validar que haya valor cuando se necesita
+    if ((tipo === 'documento' || tipo === 'licencia') && !valor) {
+        showModal('Ingresa un valor para buscar', 'error');
+        return;
+    }
+
+    let url = 'http://127.0.0.1:8001/conductores';
+    if (tipo === 'documento') url = `http://127.0.0.1:8001/conductores/documento/${valor}`;
+    if (tipo === 'licencia')  url = `http://127.0.0.1:8001/conductores/licencia/${valor}`;
+    if (tipo === 'estado')    url = `http://127.0.0.1:8001/conductores/estado/${estado}`;
+
+    try {
+        const response = await fetch(url, { headers: { 'Authorization': tkn } });
+        const body = await response.json();
+
+        if (!response.ok) {
+            showModal(body.error || 'No se encontraron resultados', 'error');
+            return;
+        }
+
+        conductores.splice(0, conductores.length);
+
+        // Por documento retorna objeto, los demás retornan array
+        if (tipo === 'documento') {
+            conductores.push(body);
+        } else {
+            body.forEach(item => conductores.push(item));
+        }
+
+        mostConductor();
+    } catch (ex) {
+        console.error('Error en el servicio');
+        showModal('Error al conectar con el servidor', 'error');
+    }
 };
 
 consultarConductor();

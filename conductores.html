@@ -34,7 +34,6 @@
         <div class="content">
 
             <div class="forms-row">
-
                 <!-- Formulario registrar -->
                 <div class="form-panel">
                     <div class="form-panel-header">
@@ -44,54 +43,72 @@
                         </div>
                     </div>
                     <form name="ConductorForm">
-                        <div>
-                            <label for="nombres">Nombres</label>
-                            <input type="text" name="nombres" placeholder="Carlos">
-                            <p id="msgNombres" class="inputError">Campo Obligatorio.</p>
-                        </div>
-                        <div>
-                            <label for="apellidos">Apellidos</label>
-                            <input type="text" name="apellidos" placeholder="Ramírez">
-                            <p id="msgApellidos" class="inputError">Campo Obligatorio.</p>
-                        </div>
-                        <div>
-                            <label for="docId">Documento de Identificación</label>
-                            <input type="text" name="documento">
-                            <p id="msgDocID" class="inputError">Campo Obligatorio.</p>
-                        </div>
-                        <div>
-                            <label for="telefono">Teléfono</label>
-                            <input type="text" name="telefono">
-                        </div>
-                        <div>
-                            <label for="correo">Correo Electrónico</label>
-                            <input type="email" name="correo">
-                        </div>
-                        <div>
-                            <label for="num_lice">Número de Licencia</label>
-                            <input type="text" name="numero_licencia" placeholder="LIC-1001">
-                            <p id="msgLice" class="inputError">Campo Obligatorio.</p>
-                        </div>
-                        <div>
-                            <label for="cat_Lice">Categoría de Licencia</label>
-                            <select name="categoria_licencia">
-                                <option value="">Seleccionar</option>
-                                <option value="C2">C2</option>
-                                <option value="C3">C3</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="venc_lice">Fecha Vencimiento Licencia</label>
-                            <input type="date" name="fecha_vencimiento_licencia">
-                        </div>
-                        <div class="buttons">
-                            <button type="reset">Cancelar</button>
-                            <button type="submit">Guardar</button>
+                        <div class="form-grid">
+                            <div>
+                                <label>Nombres</label>
+                                <input type="text" name="nombres" placeholder="Carlos">
+                                <p id="msgNombres" class="inputError">Campo Obligatorio.</p>
+                            </div>
+                            <div>
+                                <label>Apellidos</label>
+                                <input type="text" name="apellidos" placeholder="Ramírez">
+                                <p id="msgApellidos" class="inputError">Campo Obligatorio.</p>
+                            </div>
+                            <div>
+                                <label>Documento de Identificación</label>
+                                <input type="text" name="documento">
+                                <p id="msgDocID" class="inputError">Campo Obligatorio.</p>
+                            </div>
+                            <div>
+                                <label>Teléfono</label>
+                                <input type="text" name="telefono">
+                            </div>
+                            <div class="form-grid-full">
+                                <label>Correo Electrónico</label>
+                                <input type="email" name="correo">
+                            </div>
+                            <div>
+                                <label>Número de Licencia</label>
+                                <input type="text" name="numero_licencia" placeholder="LIC-1001">
+                                <p id="msgLice" class="inputError">Campo Obligatorio.</p>
+                            </div>
+                            <div>
+                                <label>Categoría de Licencia</label>
+                                <select name="categoria_licencia">
+                                    <option value="">Seleccionar</option>
+                                    <option value="C2">C2</option>
+                                    <option value="C3">C3</option>
+                                </select>
+                            </div>
+                            <div class="form-grid-full">
+                                <label>Fecha Vencimiento Licencia</label>
+                                <input type="date" name="fecha_vencimiento_licencia">
+                            </div>
+                            <div class="form-grid-full buttons">
+                                <button type="reset">Cancelar</button>
+                                <button type="submit">Guardar</button>
+                            </div>
                         </div>
                     </form>
                 </div>
 
-            <!-- Tabla -->
+                <div class="filtros">
+                    <select id="tipoBusqueda" onchange="cambiarFiltro()">
+                        <option value="todos">Todos</option>
+                        <option value="documento">Por documento</option>
+                        <option value="licencia">Por licencia</option>
+                        <option value="estado">Por estado</option>
+                    </select>
+                    <input type="text" id="valorBusqueda" placeholder="Buscar...">
+                    <select id="valorEstado" class="oculto-select">
+                        <option value="disponible">Disponible</option>
+                        <option value="en_ruta">En ruta</option>
+                        <option value="inactivo">Inactivo</option>
+                    </select>
+                    <button onclick="buscarConductor()">Buscar</button>
+                </div>
+            </div>
+
             <div class="table-section">
                 <div class="table-section-header">
                     <div>
@@ -116,9 +133,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td colspan="11">No hay registros...</td>
-                        </tr>
+                        <tr><td colspan="11">No hay registros...</td></tr>
                     </tbody>
                 </table>
             </div>

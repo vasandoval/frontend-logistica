@@ -57,7 +57,7 @@ const registrarVehiculo= async () => {
 const actualizarVehiculo = async () => {
     try{
         const id = vehiculo.id;
-        const tkm = localStorage.getItem('token');
+        const tkn = localStorage.getItem('token');
         const response = await fetch('http://127.0.0.1:8002/vehiculos/' + id, {
             method: 'put',
             headers: {
