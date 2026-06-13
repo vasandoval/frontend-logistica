@@ -325,11 +325,26 @@ form .buttons button[type="submit"] {
 /* MÓDULOS (conductores, vehiculos, rutas, viajes) */
 .content {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 24px;
     padding: 100px 40px 40px;
+    align-items: center;
+}
+
+.forms-row {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: flex-start;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+}
+
+.form-grid-full {
+    grid-column: 1 / -1;
 }
 
 form {
